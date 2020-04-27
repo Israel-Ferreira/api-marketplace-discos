@@ -1,17 +1,17 @@
 language: ruby
 rvm:
-  - 2.6.5
+- 2.6.5
 services:
-  - postgresql  
+- postgresql
 script:
-  - bundle exec rake db:create RAILS_ENV=test
-  - bundle exec rake db:migrate RAILS_ENV=test
+- bundle exec rake db:create RAILS_ENV=test
+- bundle exec rake db:migrate RAILS_ENV=test
 deploy:
   provider: heroku
   api_key:
-    secure: lsWxxeM7fjL45wjFYk+nJSCnOYP/E6L2QGP3W/9Sl2NNPCH7zapQDscnwGtLq/lN4UBUSG+MGGQ3p+qQ4rKGmtxQdE1j0ooKnhfMta5TaldneNLD8uqCdLVLMdRlwor8zX5bP6THrb88RzP/5BdzLy8CO886ubMu3XnKURZ9l9lZH478HHGmzdrKPOwd0snaKAVjyIp3OOiiVE6ozoCvRjLTp8MQYK9AicBrFDFcfqcl+RPvhjzjk6Ml+o9W4Edc1dfd352iakeIxDmPkY9FiR0++pTGVSCwVfJ1PwhfjnHuwqJuFw7k4d4+97Y7Ej6R2WLX24ScF5fw0ubSyTLaUabxPwwyShLTUQZYLNaxEP9kmc9LX9Ef+V3OcoZQ04hBmD3hQyvO3vq0S/7Geterv0L3QaC3QjzAIl8i2Jeudd9Xd5UpKr99JpMvSvymXWlLC6WhTLRQxPDH9poKeFigB5fUtiCZqu2W7W+kfSrrMYYGRQT5MuLEDDs/jeJsHXqpE+bNQR/NHV7dEwCM3HgO4sfnufhkrQ7MPgn4ndgBBQM/XN78Fo7OvJEXQoz6585/sPdn3IVbIcutom4fakHKB44d5LF2lsq4UeYiGjbIMHJ2HgOrdYP+M/uk3vl+5LuSBA5miSwGiFOeXCK3pOP7xRvFpLyaapKqURRfnMmXHKc=
+    secure: J4AWJ2/0hedq4PYGd4YXLmfNtQEh7l1n00n0UkbXWysY12POcL5zex0hJf+zjbIdlo+c705nVbfB7axbAyHXH1dbVeSZGDuP/SQUcEEiSFl1FSZmN+TGAiJ00zk1krixkn4kScwzl2ocEuWzH9TDt7gN9RIhuaUDZgqKg9C7X3rlGHQv0hHXYAcUUC/bo32Y6mqyEY6u/ZRYMwTidBQQPIh/DnR8x7h+8f1VrOyZP+X7gZfmQIt8LsBNXbh0fWHfMC/WKY9VHVF0RNAAjOKtkEjKlFn2e9dBSBn3bI2J9pkbEI308jCX7gN3DT1+BouMS2/c+j9JExCezKHq3KrcUIL/2mEZQaXrKdmEVyYPYWu21SYhLjmNXaoZFhl/uqGgL8mSbVW+ImROcuAKCMZYUqclMFELTF+xasNJnvfDAXZLHlhrGcDXTydhZxva0mPIMN09Kg9denDraBmCp1nhk3x40dioj35nroi5rA+C3nUEomopuP2GKWK4iX3GSZXj2b9uDmhd2stIyBRdBtZXStNZiWJyHhnhzj3L4q2ar19PLZINYg6E8yCQ0Yvh8Rop86AC3mBIjrPbROEbCn2K6gZG90UrdwUrlN2pbzh6mvoDFZAvLjIb75MQNW/8ktJKSEUEnlQv4DrBcHslhUaY8ZJ9jxKxUNuxdiRBH5iLHUY=
   app: api-marketplace-discos
-  run:
-    - rails db:migrate
   on:
     repo: Israel-Ferreira/api-marketplace-discos
+  run:
+  - rails db:migrate
