@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :products
+      resources :purchases, only: [:create]
       resources :carts do
         collection do
           post :add_to_cart

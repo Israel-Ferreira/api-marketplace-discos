@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  c_number: MyString
+  c_holder_name: MyString
+  cvv: MyString
+  exp_date: MyString
+
+two:
+  c_number: MyString
+  c_holder_name: MyString
+  cvv: MyString
+  exp_date: MyString

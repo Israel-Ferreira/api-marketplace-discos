@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_054600) do
+ActiveRecord::Schema.define(version: 2020_04_27_004647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 2020_04_24_054600) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "c_number"
+    t.string "c_holder_name"
+    t.string "cvv"
+    t.string "exp_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "purchase_id", null: false
+    t.index ["purchase_id"], name: "index_credit_cards_on_purchase_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "artist"
     t.integer "year"
@@ -33,6 +44,16 @@ ActiveRecord::Schema.define(version: 2020_04_24_054600) do
     t.string "thumb"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cart_id", null: false
+    t.integer "value_to_pay"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_purchases_on_cart_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,4 +73,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_054600) do
 
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
+  add_foreign_key "credit_cards", "purchases"
+  add_foreign_key "purchases", "carts"
+  add_foreign_key "purchases", "users"
 end
