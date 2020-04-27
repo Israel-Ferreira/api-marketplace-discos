@@ -48,3 +48,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem "devise-jwt", "~> 0.6.0"
 gem 'dry-configurable', '0.9.0'
 
+
+gem "travis", "~> 1.8"
